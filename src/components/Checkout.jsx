@@ -1,7 +1,13 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
+import { useStateValue } from '../StateProvider';
+import CheckoutProduct from './CheckoutProduct';
 import Subtotal from './Subtotal';
 
 function Checkout() {
+
+    const [{ cart }, dispatch] = useStateValue();
+
     return (
         <div className='checkout'>
             <div className='checkoutLeft'>
@@ -13,6 +19,17 @@ function Checkout() {
 
                 <div>
                     <h2 className='checkoutTitle'>Your Shopping Cart</h2>
+
+                    {cart.map(item => (
+                        <CheckoutProduct 
+                            id={item.id}
+                            title={item.title}
+                            image={item.image}
+                            price={item.price}
+                            rating={item.rating}
+                        />
+                    ))}
+                    
                 </div>
                 
             </div>
