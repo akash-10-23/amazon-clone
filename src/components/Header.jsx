@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -25,10 +26,13 @@ function Header() {
             </div>
 
             <div className="headerNav">
-                <div className="headerOption">
-                    <span className="OptionLineOne">Hello Guest</span>
-                    <span className="OptionLineTwo">Sign In</span>
-                </div>
+                
+                <Link to="/login">
+                    <div className="headerOption">
+                        <span className="OptionLineOne">Hello Guest</span>
+                        <span className="OptionLineTwo">Sign In</span>
+                    </div>
+                </Link>
 
                 <div className="headerOption">
                     <span className="OptionLineOne">Returns</span>
