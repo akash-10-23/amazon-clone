@@ -6,7 +6,11 @@ import Subtotal from './Subtotal';
 
 function Checkout() {
 
-    const [{ cart }, dispatch] = useStateValue();
+    const [{ cart, user }, dispatch] = useStateValue();
+    let uname = "Guest";
+    if (user) {
+        uname = user.email.substring(0, user.email.indexOf("@"));
+    }
 
     return (
         <div className='checkout'>
@@ -18,6 +22,7 @@ function Checkout() {
                 />
 
                 <div>
+                    <h3>Hello {uname},</h3>
                     <h2 className='checkoutTitle'>Your Shopping Cart</h2>
 
                     {cart.map(item => (
