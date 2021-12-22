@@ -9,6 +9,7 @@ import Login from './components/Login';
 import { useEffect } from 'react';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
+import Payment from './components/Payment';
 
 function App() {
 
@@ -50,7 +51,7 @@ function App() {
 
           <Route path="/payment">
             <Header />
-            <h1>Payment Page....!!!</h1>
+            <Payment />
           </Route>
 
           <Route path="/">
