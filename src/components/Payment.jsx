@@ -28,7 +28,7 @@ function Payment() {
             const response = await axios({
                 method: 'post',
                 // Stripe expects the total in currencies subunits
-                url: `/payment/create?total=${getCartTotal(cart) * 100}`
+                url: `/payments/create?total=${getCartTotal(cart)*100}`
             });    
 
             setClientSecret(response.data.clientSecret);
@@ -56,6 +56,8 @@ function Payment() {
             history.replace('/orders');
         });
     }
+
+    console.log("The client secret is >>>", clientSecret);
 
     const handleChange = event => {
         setDisabled(event.empty);
