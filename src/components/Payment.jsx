@@ -1,12 +1,66 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
-import { Link } from 'react-router-dom';
+import {CardElement , useElements, useStripe } from '@stripe/react-stripe-js';
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom';
+import { getCartTotal } from '../reducer';
 import { useStateValue } from '../StateProvider';
+import axios from '../axios';
 import CheckoutProduct from './CheckoutProduct';
+import CurrencyFormat from 'react-currency-format';
 
 function Payment() {
 
     const [{ cart, user }, dispatch] = useStateValue();
+
+    const stripe = useStripe();
+    const elements = useElements();
+
+    const [error, setError] = useState(null);
+    const [disabled, setDisabled] = useState(true);
+    const [processing, setProcessing] = useState("");
+    const [success, setSuccess] = useState(false);
+    const [clientSecret, setClientSecret] = useState("");
+
+    const history = useHistory();
+
+    useEffect(() => {
+        const getClientSecret = async () => {
+            const response = await axios({
+                method: 'post',
+                // Stripe expects the total in currencies subunits
+                url: `/payment/create?total=${getCartTotal(cart) * 100}`
+            });    
+
+            setClientSecret(response.data.clientSecret);
+        }
+
+        getClientSecret();
+
+    },[cart]);
+
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        setProcessing(true);
+
+        const payload = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: elements.getElement(CardElement)
+            }
+        }).then(({ paymentIntent }) => {
+            // paymentIntent = payment confirmation
+
+            setSuccess(true);
+            setError(null);
+            setProcessing(false);
+
+            history.replace('/orders');
+        });
+    }
+
+    const handleChange = event => {
+        setDisabled(event.empty);
+        setError(event.error ? event.error.message : "");
+    }
 
     return (
         <div className='payment'>
@@ -59,6 +113,33 @@ function Payment() {
 
                     <div className='paymentDetails'>
                         {/* Payment Using Stripe */}
+
+                        <form onSubmit={handleSubmit}>
+                            <CardElement onChange={handleChange} />
+
+                            <div className='paymentPriceContainer'>
+                                <CurrencyFormat 
+                                    renderText={(value) => (
+                                        <h3>Order total : {value}</h3>
+                                    )}
+                                    decimalScale={2}
+                                    value={getCartTotal(cart)} 
+                                    displayType={"text"}
+                                    thousandSeparator={true}
+                                    prefix={"$"}
+                                />
+
+                                <button disabled={processing || disabled || success}>
+                                    <span>
+                                        {processing ? <p>Processing</p>: "Buy Now"}
+                                    </span>
+                                </button>
+                            </div>
+
+                            {/* To handle any errors that may occur */}
+                            {error && <div>{error}</div>}
+                        </form>
+
                     </div>
                 </div>
 
