@@ -24,7 +24,7 @@ function CheckoutProduct(props) {
             <div className='checkoutProductInfo'>
                 <p className='checkoutProductTitle'>{title}</p>
                 <p className='checkoutProductPrice'>
-                    <small>$</small>
+                    <small>₹</small>
                     <strong>{price}</strong>
                 </p>
                 <div className='checkoutProductRating'>

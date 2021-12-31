@@ -26,7 +26,7 @@ function Product(props) {
             <div className="productInfo">
                 <p>{title}</p>
                 <p className="productPrice">
-                    <small>$</small>
+                    <small>₹</small>
                     <strong>{price}</strong>
                 </p>
                 <div className="productRating">

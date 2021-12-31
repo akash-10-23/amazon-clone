@@ -128,7 +128,7 @@ function Payment() {
                                     value={getCartTotal(cart)} 
                                     displayType={"text"}
                                     thousandSeparator={true}
-                                    prefix={"$"}
+                                    prefix={"₹"}
                                 />
 
                                 <button disabled={processing || disabled || success}>
