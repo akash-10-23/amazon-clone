@@ -53,11 +53,15 @@ function Payment() {
             setError(null);
             setProcessing(false);
 
+            dispatch({
+                type: "EMPTY_CART"
+            });
+
             history.replace('/orders');
         });
     }
 
-    console.log("The client secret is >>>", clientSecret);
+    //console.log("The client secret is >>>", clientSecret);
 
     const handleChange = event => {
         setDisabled(event.empty);
