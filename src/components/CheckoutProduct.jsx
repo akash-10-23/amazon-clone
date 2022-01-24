@@ -3,7 +3,7 @@ import React from 'react';
 import { useStateValue } from '../StateProvider';
 
 function CheckoutProduct(props) {
-    const { id, title, price, image, rating } = props;
+    const { id, title, price, image, rating, hideButton } = props;
     const [{ cart }, dispatch] = useStateValue();
 
     const removeFromCart = () => {
@@ -32,7 +32,11 @@ function CheckoutProduct(props) {
                         <p>⭐</p>    
                     ))} 
                 </div>
-                <button onClick={removeFromCart}>Remove From Cart</button>
+                {!hideButton && <button onClick={removeFromCart}>
+                                    Remove From Cart
+                                </button>
+                }
+                
             </div>
         </div>
     )

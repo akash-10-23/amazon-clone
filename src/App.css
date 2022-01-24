@@ -329,3 +329,31 @@
 .paymentAddress, .paymentItems, .paymentDetails {
     flex: 0.8;
 }
+
+/* Orders CSS */
+.orders {
+    padding: 20px 80px;
+}
+
+.orders > h1 {
+    margin: 30px 0px;
+}
+
+.order {
+    padding: 40px;
+    margin: 20px 0;
+    border: 1px solid lightgrey;
+    background-color: white;
+    position: relative;
+}
+
+.orderId {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+}
+
+.orderTotal {
+    font-weight: 500;
+    text-align: right;
+}
