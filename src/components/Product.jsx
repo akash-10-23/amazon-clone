@@ -27,8 +27,7 @@ function Product(props) {
             <div className="productInfo">
                 <p>{title}</p>
                 <p className="productPrice">
-                    {/* <small>₹</small>
-                    <strong>{price}</strong> */}
+
                     <CurrencyFormat 
                         renderText={(value) => (
                             <strong>{value}</strong>

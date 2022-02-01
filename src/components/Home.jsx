@@ -33,7 +33,7 @@ function Home() {
                         id="4903850"
                         title="Huawei Band 6 Fitness Tracker Smartwatch for Men Women, 1.47''AMOLED Color Screen"
                         price={3999.00}
-                        rating={3}
+                        rating={4}
                         image="https://m.media-amazon.com/images/I/61RXMQtXS+L._SY355_.jpg"
                     />
                     <Product 
