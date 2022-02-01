@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { useStateValue } from '../StateProvider';
+import CurrencyFormat from 'react-currency-format';
 
 function Product(props) {
     const { id, title, price, rating, image } = props;
@@ -26,8 +27,18 @@ function Product(props) {
             <div className="productInfo">
                 <p>{title}</p>
                 <p className="productPrice">
-                    <small>₹</small>
-                    <strong>{price}</strong>
+                    {/* <small>₹</small>
+                    <strong>{price}</strong> */}
+                    <CurrencyFormat 
+                        renderText={(value) => (
+                            <strong>{value}</strong>
+                        )}
+                        decimalScale={2}
+                        value={price} 
+                        displayType={"text"}
+                        thousandSeparator={true}
+                        prefix={"₹"}
+                    />
                 </p>
                 <div className="productRating">
                     {Array(rating).fill().map((_, i) => (
