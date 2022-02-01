@@ -35,7 +35,7 @@ function Product(props) {
                     ))} 
                 </div>
             </div>
-
+                        
             <img
                 src={image}
                 alt=""    
