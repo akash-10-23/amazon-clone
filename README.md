@@ -5,26 +5,27 @@ Deployed on Firebase: [Amazon Clone](https://clone-cf8cb.web.app/)
 ## Web App Screenshots
 
 <p align="left"> 
+  <h3 align="center"> Home Page </h3>
   <kbd>
     <img src='screenshots/homepage.jpeg' />
   </kbd>
  
- <p style="margin-bottom: 25px"></p>
+ <h3 align="center"> Login Page </h3>
   <kbd>
     <img src='screenshots/login.jpeg' width="600" height="300" />
   </kbd>
   
-  <p style="margin-bottom: 25px"></p>
+ <h3 align="center"> Cart Preview </h3>
   <kbd>
     <img src='screenshots/cart.jpeg' width="600" height="300" />
   </kbd>
   
-  <p style="margin-bottom: 25px"></p>
+ <h3 align="center"> Payment Page </h3>
   <kbd>
     <img src='screenshots/payment.jpeg' width="600" height="400" />
   </kbd>
   
-  <p style="margin-bottom: 25px"></p>
+  <h3 align="center"> Order History </h3>
   <kbd>
     <img src='screenshots/orders.jpeg' width="600" height="500" />
   </kbd>
