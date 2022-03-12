@@ -11,18 +11,22 @@ Deployed on Firebase: [Amazon Clone](https://clone-cf8cb.web.app/)
  
  <p style="margin-bottom: 25px"></p>
   <kbd>
-    <img src='screenshots/login.jpeg' width="480" height="300" />
-  </kbd>
-  <kbd>
-    <img src='screenshots/cart.jpeg' width="500" height="300" />
+    <img src='screenshots/login.jpeg' width="600" height="300" />
   </kbd>
   
   <p style="margin-bottom: 25px"></p>
   <kbd>
-    <img src='screenshots/payment.jpeg' width="480" height="400" />
+    <img src='screenshots/cart.jpeg' width="600" height="300" />
   </kbd>
+  
+  <p style="margin-bottom: 25px"></p>
   <kbd>
-    <img src='screenshots/orders.jpeg' width="500" height="400" />
+    <img src='screenshots/payment.jpeg' width="600" height="400" />
+  </kbd>
+  
+  <p style="margin-bottom: 25px"></p>
+  <kbd>
+    <img src='screenshots/orders.jpeg' width="600" height="500" />
   </kbd>
   
 </p>
